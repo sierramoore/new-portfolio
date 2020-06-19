@@ -1,0 +1,10 @@
+.logo {
+  background-image: url("../../img/my_logo_flower.svg");
+  width: 15rem;
+  height: 15rem;
+  background-repeat: no-repeat;
+  margin: 3rem;
+}
+#flower {
+  animation: scale 1s infinite;
+}
