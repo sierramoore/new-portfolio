@@ -1,0 +1,46 @@
+*,
+*::after,
+*::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+
+  @include respond(tab-land) { // width < 1200?
+    font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+  }
+
+  @include respond(tab-port) { // width < 900?
+    font-size: 50%; //1 rem = 8px, 8/16 = 50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; //1rem = 12, 12/16
+  }
+}
+
+body {
+  overflow-y: hidden;
+  min-height: 100vh;
+  min-width: 100vw;
+  //background: repeating-linear-gradient(
+  //                90deg,
+  //                $grey,
+  //                $grey 1px,
+  //                #fff 1px,
+  //                #fff 20vh
+  //);
+
+  background-size: 25vh 25vh;
+  background-image:
+          linear-gradient(to right, $grey 1px, transparent 1px),
+          linear-gradient(to bottom, $grey 1px, transparent 1px);
+
+  //background-image: url("../../img/map.png");
+  //background-size: contain;
+}
+
+
