@@ -35,16 +35,57 @@ html {
       font-size: 75%; } }
 
 body {
+  font-family: 'Work Sans', sans-serif;
   overflow-y: hidden;
   min-height: 100vh;
   min-width: 100vw;
   background-size: 25vh 25vh;
   background-image: linear-gradient(to right, #b4b3b3 1px, transparent 1px), linear-gradient(to bottom, #b4b3b3 1px, transparent 1px); }
 
-.paper {
-  background-image: url("../../img/img1.jpg");
-  width: 40vw;
-  height: 50vh;
-  background-size: cover;
-  background-position: center;
-  margin: 20% 40%; }
+.container {
+  display: grid;
+  grid-template-rows: 15vh 70vh 15vh;
+  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; }
+
+.mg-btm-mid {
+  margin-bottom: 3rem !important; }
+
+.mg-top-mid {
+  margin-top: 4rem !important; }
+
+.project {
+  display: grid;
+  grid-row: 2 / 3;
+  grid-column: 6 / 10;
+  align-content: end;
+  position: relative; }
+  .project__text {
+    color: #575656;
+    font-size: 5.5rem;
+    letter-spacing: 2px;
+    position: absolute;
+    left: -25%;
+    bottom: -7rem; }
+  .project .paper-container {
+    background-image: url("../../img/wires.svg");
+    width: 50vw;
+    height: 50vh;
+    box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+    position: relative; }
+    .project .paper-container__text {
+      font-size: 2.6rem;
+      color: #575656;
+      font-weight: bold;
+      text-align: right;
+      position: absolute;
+      right: .7rem;
+      top: 33%; }
+    .project .paper-container .paper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: url("../../img/vest.png");
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center; }
