@@ -8,3 +8,13 @@
     border: 1rem solid pink;
   }
 }
+
+@keyframes width {
+  from {
+    width: 0;
+  }
+  to{
+    min-width: 30rem;
+    width: 100%;
+  }
+}

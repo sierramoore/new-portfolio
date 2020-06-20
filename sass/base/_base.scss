@@ -31,8 +31,8 @@ body {
 
   background-size: 25vh 25vh;
   background-image:
-          linear-gradient(to right, $grey 1px, transparent 1px),
-          linear-gradient(to bottom, $grey 1px, transparent 1px);
+          linear-gradient(to right, $light-grey 1px, transparent 1px),
+          linear-gradient(to bottom, $light-grey 1px, transparent 1px);
 }
 
 .container {
@@ -40,6 +40,8 @@ body {
   grid-template-rows: 15vh 70vh 15vh;
 
   grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+
+  //grid-template-columns: repeat(8, 1fr);
 
   //@media only screen and (max-width: $bp-large) {
   //  grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
@@ -51,3 +53,11 @@ body {
   //}
 }
 
+a:hover {
+  cursor: pointer;
+}
+
+::selection {
+  background-color: $dark-grey;
+  color: #fff;
+}

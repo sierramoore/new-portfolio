@@ -23,6 +23,13 @@ ORDER: Base + typography > general layout + grid > page layout > components
     transform: scale(2.5);
     border: 1rem solid pink; } }
 
+@keyframes width {
+  from {
+    width: 0; }
+  to {
+    min-width: 30rem;
+    width: 100%; } }
+
 *,
 *::after,
 *::before {
@@ -48,12 +55,19 @@ body {
   min-height: 100vh;
   min-width: 100vw;
   background-size: 25vh 25vh;
-  background-image: linear-gradient(to right, #b4b3b3 1px, transparent 1px), linear-gradient(to bottom, #b4b3b3 1px, transparent 1px); }
+  background-image: linear-gradient(to right, #d9d8d8 1px, transparent 1px), linear-gradient(to bottom, #d9d8d8 1px, transparent 1px); }
 
 .container {
   display: grid;
   grid-template-rows: 15vh 70vh 15vh;
   grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; }
+
+a:hover {
+  cursor: pointer; }
+
+::selection {
+  background-color: #575656;
+  color: #fff; }
 
 .mg-btm-mid {
   margin-bottom: 3rem !important; }
@@ -61,42 +75,70 @@ body {
 .mg-top-mid {
   margin-top: 4rem !important; }
 
-.project {
+.project-container {
   display: grid;
   grid-row: 2 / 3;
-  grid-column: 6 / 10;
-  align-content: end;
-  position: relative; }
-  .project__text {
-    color: #575656;
-    font-size: 5.5rem;
-    letter-spacing: 2px;
-    position: absolute;
-    left: -25%;
-    bottom: -7rem; }
-  .project .paper-container {
-    background-image: url("../../img/wires.svg");
-    width: 50vw;
-    height: 50vh;
-    box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+  grid-column: 3 / 10;
+  align-content: end; }
+  .project-container .project {
+    display: flex;
+    justify-content: space-between;
     position: relative; }
-    .project .paper-container__text {
-      font-size: 2.6rem;
+    .project-container .project__info {
+      max-width: 33%;
+      max-height: 66%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around; }
+    .project-container .project__title {
       color: #575656;
-      font-weight: bold;
-      text-align: right;
-      position: absolute;
-      right: .7rem;
-      top: 33%; }
-    .project .paper-container .paper {
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-image: url("../../img/vest.png");
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: top; }
+      font-size: 5.5rem;
+      letter-spacing: 2px;
+      position: relative; }
+      .project-container .project__title::after {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 1rem;
+        background-color: #b4b3b3;
+        bottom: 1rem;
+        left: 0;
+        z-index: -1; }
+    .project-container .project__desc {
+      color: #575656;
+      font-size: 1.8rem;
+      padding-top: 2rem; }
+    .project-container .project__link {
+      font-size: 3rem;
+      text-decoration: none;
+      text-align: center;
+      background-color: #575656;
+      color: #fff;
+      padding: 1rem 2rem; }
+    .project-container .project .paper-container {
+      background-image: url("../../img/wires.svg");
+      width: 50vw;
+      height: 50vh;
+      box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+      position: relative; }
+      .project-container .project .paper-container__text {
+        font-size: 2.6rem;
+        color: #575656;
+        font-weight: bold;
+        text-align: right;
+        position: absolute;
+        right: .7rem;
+        top: 33%; }
+      .project-container .project .paper-container .paper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url("../../img/harborhq.png");
+        min-width: 50rem;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: top; }
 
 .logo {
   background-image: url("../../img/my_logo_flower.svg");
