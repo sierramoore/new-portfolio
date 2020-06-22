@@ -15,13 +15,13 @@ ORDER: Base + typography > general layout + grid > page layout > components
 
 1em = 16px
 */
-@keyframes scale {
-  from {
-    transform: scale(1);
-    border: 1rem solid darkviolet; }
-  to {
-    transform: scale(2.5);
-    border: 1rem solid pink; } }
+@keyframes float {
+  0% {
+    transform: translateY(0%); }
+  50% {
+    transform: translateY(-2%); }
+  100% {
+    transform: translateY(0%); } }
 
 @keyframes width {
   from {
@@ -29,6 +29,11 @@ ORDER: Base + typography > general layout + grid > page layout > components
   to {
     min-width: 30rem;
     width: 100%; } }
+
+@keyframes bgFill {
+  from {
+    background-color: #575656; }
+  to { } }
 
 *,
 *::after,
@@ -62,8 +67,41 @@ body {
   grid-template-rows: 15vh 70vh 15vh;
   grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; }
 
-a:hover {
-  cursor: pointer; }
+.cursor {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  border: 1px solid #575656;
+  position: absolute;
+  transition-duration: 100ms;
+  transition-timing-function: ease-out;
+  z-index: 100;
+  animation: cursorAnim 1s infinite alternate; }
+  .cursor::after {
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #575656;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    animation: cursorAnim2 .5s infinite alternate; }
+
+.cursor-clicked {
+  border: 1px solid red !important; }
+
+@keyframes cursorAnim {
+  from {
+    transform: scale(1); }
+  to {
+    transform: scale(1.2); } }
+
+@keyframes cursorAnim2 {
+  from {
+    transform: scale(0.9); }
+  to {
+    transform: scale(1.1); } }
 
 ::selection {
   background-color: #575656;
@@ -107,14 +145,41 @@ a:hover {
     .project-container .project__desc {
       color: #575656;
       font-size: 1.8rem;
-      padding-top: 2rem; }
+      padding: 2rem 2rem 0 0; }
     .project-container .project__link {
       font-size: 3rem;
       text-decoration: none;
       text-align: center;
       background-color: #575656;
       color: #fff;
-      padding: 1rem 2rem; }
+      padding: 1rem 2rem;
+      max-width: 16rem;
+      box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1); }
+    .project-container .project__btns {
+      display: flex;
+      justify-content: space-evenly; }
+    .project-container .project__icon {
+      position: relative;
+      display: inline-block;
+      color: #575656;
+      height: 4.5rem;
+      width: 4.5rem;
+      overflow: hidden;
+      border-radius: 50%;
+      padding: 1rem;
+      box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1); }
+      .project-container .project__icon:hover, .project-container .project__icon:focus, .project-container .project__icon:active {
+        background-color: #575656;
+        color: #fff; }
+      .project-container .project__icon::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        height: 6rem;
+        width: 6rem;
+        border-radius: 50%;
+        border: 1px solid #575656; }
     .project-container .project .paper-container {
       background-image: url("../../img/wires.svg");
       width: 50vw;
@@ -140,12 +205,18 @@ a:hover {
         background-size: cover;
         background-position: top; }
 
+.logo-container {
+  position: relative; }
+
 .logo {
-  background-image: url("../../img/my_logo_flower.svg");
   width: 15rem;
   height: 15rem;
   background-repeat: no-repeat;
-  margin: 3rem; }
+  margin: 3rem;
+  transform: rotate(0deg); }
 
 #flower {
-  animation: scale 1s infinite; }
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  animation: float 3s infinite ease-in-out; }

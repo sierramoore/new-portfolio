@@ -1,11 +1,12 @@
-@keyframes scale {
-  from {
-    transform: scale(1);
-    border: 1rem solid darkviolet;
+@keyframes float {
+  0% {
+    transform: translateY(0%);
   }
-  to{
-    transform: scale(2.5);
-    border: 1rem solid pink;
+  50% {
+    transform: translateY(-2%);
+  }
+  100% {
+    transform: translateY(0%);
   }
 }
 
@@ -16,5 +17,13 @@
   to{
     min-width: 30rem;
     width: 100%;
+  }
+}
+@keyframes bgFill {
+  from {
+    background-color: $dark-grey;
+  }
+  to{
+
   }
 }

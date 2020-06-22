@@ -16,3 +16,21 @@ elem.addEventListener('mouseover',function(){
 elem.addEventListener('mouseout',function(){
     folded.reset();
 },false);
+
+
+const cursor = document.querySelector('.cursor');
+
+document.addEventListener('mousemove', e => {
+    // -25 is minus half of height and width of cursor to center mouse
+    cursor.setAttribute('style', "top: " +(e.pageY -25) + "px; left: " + (e.pageX -25) + "px;")
+})
+
+
+document.addEventListener('click', () => {
+    cursor.classList.add("cursor-clicked")
+
+    // remove class after .5s
+    setTimeout(() => {
+        cursor.classList.remove("cursor-clicked")
+    }, 500)
+})
