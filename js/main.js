@@ -20,29 +20,8 @@ const projectImg = document.getElementById('projectImg');
 const projectTitle = document.getElementById('projectTitle');
 const projectDesc = document.getElementById('projectDesc');
 
-const nextProject = document.getElementById('project-next');
-const prevProject = document.getElementById('project-back');
-
-const projectImgs = [
-    'url("../../img/vest.png")',
-    'url("../../img/harborhq.png")',
-    'url("../../img/perfectionpainting.png")',
-    'url("../../img/ust.png")'
-];
-const projectTitles = [
-    'VestHQ',
-    'HarborHQ',
-    'Perfection Painting',
-    'UST Aviation'
-];
-
-
-const projectDescriptions = [
-    'Created the website for a fin-tech startup to showcase the features of the company.',
-    'Created the website for a fin-tech startup to serve as a client login portal.',
-    'Designed and developed website for a commercial painting company to showcase work and send work inquires.',
-    'Recreated old site from Flash, changed hosting and email routing'
-];
+const nextBtn = document.getElementById('project-next');
+const prevBtn = document.getElementById('project-back');
 
 const projects = {
     one: {
@@ -67,31 +46,38 @@ const projects = {
     }
 }
 
-let bgCount = 0;
-nextProject.addEventListener('click', (e) => {
-    if (bgCount <= 0) { bgCount = 1 }
-    bgCount++;
-    if (bgCount > projectImgs.length - 1) bgCount = 0;
-    projectImg.style.backgroundImage = projectImgs[bgCount];
-    console.log(bgCount, 'next')
+const projectValesArr = [];
+Object.entries(projects).forEach((entry) => {
+    projectValesArr.push(entry[1])
+});
 
-    console.log(projectTitles.innerText)
-    projectTitles.innerText = projectTitles[bgCount];
-    projectDescriptions.innerText = projectTitles[bgCount];
+const updateProjectValues = () => {
+    projectImg.style.backgroundImage = projectValesArr[count].img;
+    projectTitle.innerText = projectValesArr[count].title;
+    projectDesc.innerText = projectValesArr[count].description;
+}
+
+let count = 0;
+
+nextBtn.addEventListener('click', () => {
+    count++;
+    if (count >= projectValesArr.length) count = 0;
+    updateProjectValues();
 })
 
-prevProject.addEventListener('click', (e) => {
-
-    if (bgCount <= 0) { bgCount = 0 }
-    console.log(bgCount, 'back')
-    projectImg.style.backgroundImage = projectImgs[bgCount - 1];
-    bgCount--;
-
-    projectTitles.innerText = projectTitles[bgCount - 1];
-    projectDescriptions.innerText = projectTitles[bgCount -1];
-
+prevBtn.addEventListener('click', () => {
+    count--;
+    if (count < 0) count = 0;
+    updateProjectValues();
 })
 
-// = projectImgs[]
 
 
+
+// const updateProject = () => {
+//     Object.entries(projects).forEach((entry) => {
+//         projectImg.style.backgroundImage = entry[1].img;
+//         projectTitle.innerText = entry[1].title;
+//         projectDesc.innerText = entry[1].description;
+//     })
+// }
