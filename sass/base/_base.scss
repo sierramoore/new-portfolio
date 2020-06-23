@@ -24,7 +24,7 @@ html {
 
 body {
   font-family: 'Work Sans', sans-serif;
-  overflow-y: hidden;
+
   min-height: 100vh;
   min-width: 100vw;
   //background: repeating-linear-gradient(90deg, $grey, $grey 1px, #fff 1px, #fff 20vh);
@@ -66,7 +66,7 @@ body {
   position: absolute;
   transition-duration: 100ms;
   transition-timing-function: ease-out;
-  z-index: 100;
+  //z-index: 100;
   animation: cursorAnim 1s infinite alternate;
 
   &::after {
