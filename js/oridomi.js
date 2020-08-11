@@ -2,17 +2,28 @@
 //     {
 //         // ripple: true // to stagger effect
 //     });
-// folded.accordion(20).wait(1000).accordion(-20);
+
+const elem = document.getElementById('projectImg');
+let folded = new OriDomi(elem);
+
+nextBtn.onclick = () => {
+    folded.destroy();
+    createFoldedElem(elem, folded);
+}
+
+const createFoldedElem = (elem, folded) =>{
+    folded = new OriDomi(elem);
+
+    elem.addEventListener('mouseover',function(e){
+        folded.accordion(-60, 0);
+    },false);
+
+    elem.addEventListener('mouseout',function(e){
+        folded.reset();
+        folded.emptyQueue();
+    },false);
+}
+
+createFoldedElem(elem, folded);
 
 
-// const elem = document.getElementsByClassName('paper')[0]
-//
-// const folded = new OriDomi(elem);
-//
-// elem.addEventListener('mouseover',function(){
-//     folded.accordion(-60, 0);
-// },false);
-//
-// elem.addEventListener('mouseout',function(){
-//     folded.reset();
-// },false);

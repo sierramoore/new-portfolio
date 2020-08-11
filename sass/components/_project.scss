@@ -3,6 +3,11 @@
   grid-row: 2 / 3;
   grid-column: 3 / 10;
   align-content: end;
+  grid-gap: 3rem;
+
+  @include respond(large-phone){
+    max-width: 30rem;
+  }
 
   .project {
     display: flex;
@@ -10,12 +15,26 @@
 
     position: relative;
 
+    @include respond(col) {
+      flex-direction: column;
+      grid-column: 8 / 10;
+      align-content: center;
+      grid-gap: 3rem;
+    }
+
+
+
     &__info {
       max-width: 33%;
+      min-width: 32rem;
       max-height: 66%;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
+
+      @include respond(col) {
+        max-width: 50rem;
+      }
     }
     &__title {
       color: $dark-grey;
@@ -54,6 +73,7 @@
       display: flex;
       //align-items: ;
       justify-content: space-evenly;
+      margin: 3rem 0;
     }
 
     &__icon {
@@ -65,37 +85,23 @@
       overflow: hidden;
       border-radius: 50%;
       padding: 1rem;
-      box-shadow: $box-shadow;
+      box-shadow: 0 1rem 2rem rgba(#000, .15);
       transition: background-color 200ms ease-in;
+      border: 1px solid $dark-grey;
 
       &:hover, &:focus, &:active {
         background-color: $dark-grey;
         color: #fff;
       }
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: 2px;
-        left: 2px;
-        height: 6rem;
-        width: 6rem;
-        border-radius: 50%;
-        border: 1px solid $dark-grey;
-      }
-    }
-    .project-next, .project-back {
-
     }
 
     .paper-container {
       background-image: url("../../img/wires.svg");
       width: 50vw;
+      max-width: 57rem;
       height: 50vh;
       box-shadow: $box-shadow;
-
       position: relative;
-
 
       &__text {
         font-size: 2.6rem;
@@ -118,7 +124,7 @@
         height: 100%;
         background-size: cover;
         background-position: top;
-        //background-repeat: no-repeat;
+
       }
     }
   }

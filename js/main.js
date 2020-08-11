@@ -15,13 +15,14 @@ document.addEventListener('mousemove', e => {
 //     }, 500)
 // })
 
-
 const projectImg = document.getElementById('projectImg');
+
 const projectTitle = document.getElementById('projectTitle');
 const projectDesc = document.getElementById('projectDesc');
 
 const nextBtn = document.getElementById('project-next');
 const prevBtn = document.getElementById('project-back');
+
 
 const projects = {
     one: {
@@ -70,7 +71,6 @@ prevBtn.addEventListener('click', () => {
     if (count < 0) count = 0;
     updateProjectValues();
 })
-
 
 
 

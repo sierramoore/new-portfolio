@@ -1,0 +1,12 @@
+.social-icons {
+  grid-row: 3 / -1;
+  grid-column: 2 / 5;
+  align-content: end;
+
+  &__icon {
+    height: 4rem;
+    width: 4rem;
+    color: $dark-grey;
+    margin-right: 2.5rem;
+  }
+}

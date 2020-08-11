@@ -49,7 +49,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
     @media (max-width: 43.125em) { @content } //690px
   }
   @if $breakpoint == col {
-    @media (max-width: 790px) { @content } //790px
+    @media (max-width: 850px) { @content } //850px
   }
   @if $breakpoint == tab-port {
     @media (max-width: 56em) { @content } //900px
